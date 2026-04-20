@@ -42,14 +42,12 @@ header p {
     line-height: 1.5;
 }
 
-/* 1. The Grid: Essential for the 100-image layout */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1.5rem;
 }
 
-/* 2. The Wrapper: Keeps the "Floorplan" shape stable while streaming */
 .img-wrapper {
     position: relative;
     aspect-ratio: 1 / 1;
@@ -77,7 +75,6 @@ header p {
     font-weight: bold;
 }
 
-/* 4. The Progress Bar: Visualizes the "Bits" filling the container */
 .stream-progress {
     position: absolute;
     bottom: 0;
@@ -88,7 +85,6 @@ header p {
     transition: width 0.1s linear; /* Smooth fill as bits arrive */
 }
 
-/* 5. The Final Image: Fades in once the bitstream is complete */
 .fade-in {
     width: 100%;
     height: 100%;
@@ -107,7 +103,6 @@ header p {
     }
 }
 
-/* 6. Utility Badges */
 .id-badge {
     position: absolute;
     top: 8px;

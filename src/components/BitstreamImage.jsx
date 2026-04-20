@@ -1,5 +1,20 @@
 import { useState, useEffect } from "react";
 
+/**
+ * BitstreamImage component for progressive image loading using "chunks"
+ *
+ * @param {Object} props - Component properties
+ * @param {string} props.src - The source URL of the image
+ * @param {number} props.id - Unique identifier for the image
+ * @returns {JSX.Element} A container showing either loading progress or image
+ *
+ * @example
+ * // Usage in a grid of images
+ * <BitstreamImage
+ *   src="https://example.com/image.jpg"
+ *   id={1}
+ * />
+ */
 function BitstreamImage({ src, id }) {
   const [percent, setPercent] = useState(0);
   const [blobUrl, setBlobUrl] = useState(null);
@@ -48,7 +63,6 @@ function BitstreamImage({ src, id }) {
 
     startBitstream();
 
-    // CLEANUP: This is vital for memory management
     return () => {
       isMounted = false;
       if (currentBlobUrl) {

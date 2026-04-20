@@ -1,7 +1,6 @@
 import BitstreamImage from "./components/BitstreamImage";
 import "./App.css";
 
-// 1. Use environment variable for Cloudflare R2 Public URL
 const BUCKET_URL = import.meta.env.VITE_BUCKET_URL;
 
 function App() {
