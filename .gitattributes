@@ -1,0 +1,11 @@
+# Ignore CSS and HTML from the language statistics
+*.css linguist-detectable=false
+*.html linguist-detectable=false
+
+# If you have a 'dist' or 'build' folder, ignore those too
+dist/* linguist-vendored
+build/* linguist-vendored
+
+# Ensure all JS and JSX files are treated as JavaScript
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
