@@ -1,0 +1,121 @@
+/* src/App.css */
+
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --accent-color: #38bdf8; /* High-tech blue for the stream */
+    --text-primary: #f8fafc;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family:
+        "Inter",
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #38bdf8;
+}
+
+header p {
+    color: #94a3b8;
+    margin-top: 0;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* 1. The Grid: Essential for the 100-image layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+/* 2. The Wrapper: Keeps the "Floorplan" shape stable while streaming */
+.img-wrapper {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3. The Bitstream Overlay: Shows the percentage flowing in */
+.stream-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.stream-text {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* 4. The Progress Bar: Visualizes the "Bits" filling the container */
+.stream-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+    transition: width 0.1s linear; /* Smooth fill as bits arrive */
+}
+
+/* 5. The Final Image: Fades in once the bitstream is complete */
+.fade-in {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: imgReveal 0.5s ease-out forwards;
+}
+
+@keyframes imgReveal {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+/* 6. Utility Badges */
+.id-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    z-index: 10;
+}
